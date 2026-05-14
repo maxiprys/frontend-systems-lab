@@ -10,6 +10,7 @@ import { RenderReasonPanel } from './components/render-reason-panel'
 import { RenderTimeline } from './components/render-timeline'
 
 import { RenderStoreProvider } from './store/render-store'
+import { Button } from '@/components/ui/button'
 
 export function RenderVisualizer() {
   const [count, setCount] = useState(0)
@@ -36,12 +37,9 @@ export function RenderVisualizer() {
     <RenderStoreProvider>
       <div className="flex flex-col gap-6">
         <div className="flex flex-wrap items-center gap-4">
-          <button
-            onClick={() => setCount((prev) => prev + 1)}
-            className="rounded-xl bg-white px-5 py-3 font-medium text-black transition-opacity hover:opacity-90"
-          >
+          <Button onClick={() => setCount((prev) => prev + 1)}>
             Increment
-          </button>
+          </Button>
 
           <button
             onClick={() => setMemoEnabled((prev) => !prev)}
