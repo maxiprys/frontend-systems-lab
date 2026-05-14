@@ -1,36 +1,140 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Frontend Systems Lab
 
-## Getting Started
+An advanced frontend engineering playground focused on rendering behavior, performance optimization, server state management, and modern React architecture patterns.
 
-First, run the development server:
+Built with Next.js, React, TypeScript, and TanStack Query.
 
-```bash
+## Features
+
+### Render Visualization
+
+- React render tracking
+- Component rerender timeline
+- Memoization comparison
+- Callback stability visualization
+- Expensive render simulation
+
+### Virtualization
+
+- Large list rendering
+- Virtual scrolling
+- Performance-focused rendering strategies
+
+### Optimistic UI
+
+- Optimistic updates
+- Rollback handling
+- Query invalidation
+- Mutation lifecycle visualization
+
+### Suspense & Streaming
+
+- Async server components
+- Suspense boundaries
+- Streaming UI patterns
+- Skeleton loading states
+
+### Shared UI System
+
+- Reusable UI primitives
+- Variant-based button system
+- Shared styling utilities
+- Design system foundations
+
+## Architecture Decisions
+
+### Feature-Based Structure
+
+The application is organized by feature boundaries instead of technical layers.  
+Each feature owns its:
+
+- components
+- hooks
+- state
+- API logic
+- domain behavior
+
+This improves scalability and long-term maintainability.
+
+---
+
+### Why React Query Instead of Global State
+
+Server state is managed with TanStack Query instead of a global client store.
+
+Benefits:
+
+- cache management
+- request deduplication
+- optimistic updates
+- invalidation
+- async lifecycle handling
+
+---
+
+### Why Shared UI Primitives
+
+Reusable UI primitives reduce duplication and create visual consistency across the platform.
+
+Current primitives:
+
+- Card
+- Button
+- Skeleton
+
+---
+
+### Why App Router
+
+Next.js App Router enables:
+
+- nested layouts
+- server components
+- streaming
+- Suspense boundaries
+- progressive rendering
+
+## Engineering Concepts Demonstrated
+
+- React rendering lifecycle
+- Referential stability
+- Memoization strategies
+- React.memo
+- useCallback
+- useMemo
+- Virtualized rendering
+- Optimistic UI updates
+- Query caching
+- Async server components
+- Suspense boundaries
+- Streaming UI
+- Feature-driven architecture
+- Shared UI systems
+- Component composition
+
+## Stack
+
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- TanStack Query
+- class-variance-authority
+- clsx
+- tailwind-merge
+
+## Local Development
+
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# Future improvements
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Future Improvements
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Accessibility playground
+- WebSocket synchronization demo
+- Render heatmap overlays
+- Query inspector tooling
+- Performance flamegraph visualization
+- Collaborative state simulation
