@@ -3,8 +3,10 @@
 import { useCallback, useMemo, useState } from 'react'
 
 import { ExpensiveList } from './components/expensive-list'
+import { Child } from './components/child'
 import { MemoChild } from './components/memo-child'
 import { RenderBox } from './components/render-box'
+import { RenderReasonPanel } from './components/render-reason-panel'
 
 export function RenderVisualizer() {
   const [count, setCount] = useState(0)
@@ -30,21 +32,6 @@ export function RenderVisualizer() {
   const callback = callbackEnabled
     ? stableCallback
     : unstableCallback
-
-  const ChildComponent = memoEnabled
-    ? MemoChild
-    : ({
-        count,
-        onAction,
-      }: {
-        count: number
-        onAction: () => void
-      }) => (
-        <MemoChild
-          count={count}
-          onAction={onAction}
-        />
-      )
 
   return (
     <div className="flex flex-col gap-6">
@@ -87,7 +74,8 @@ export function RenderVisualizer() {
             }
           `}
         >
-          useCallback: {callbackEnabled ? 'ON' : 'OFF'}
+          useCallback:{' '}
+          {callbackEnabled ? 'ON' : 'OFF'}
         </button>
       </div>
 
@@ -103,10 +91,22 @@ export function RenderVisualizer() {
         />
       </div>
 
-      <ChildComponent
-        count={count}
-        onAction={callback}
+      <RenderReasonPanel
+        callbackEnabled={callbackEnabled}
+        memoEnabled={memoEnabled}
       />
+
+{memoEnabled ? (
+  <MemoChild
+    count={count}
+    onAction={callback}
+  />
+) : (
+  <Child
+    count={count}
+    onAction={callback}
+  />
+)}
 
       <ExpensiveList value={expensiveValue} />
     </div>
