@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
-import { Blocks, Zap } from 'lucide-react'
+import { Blocks, ChartNoAxesCombined, Zap } from 'lucide-react'
 
 const items = [
   {
@@ -15,6 +15,11 @@ const items = [
     label: 'Virtualization',
     href: '/virtualization',
     icon: Blocks,
+  },
+  {
+    label: 'Optimistic UI',
+    href: '/optimistic-ui',
+    icon: ChartNoAxesCombined,
   },
 ]
 
