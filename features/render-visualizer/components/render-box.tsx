@@ -9,10 +9,7 @@ type RenderBoxProps = {
   value: number
 }
 
-export function RenderBox({
-  title,
-  value,
-}: RenderBoxProps) {
+export function RenderBox({ title, value }: RenderBoxProps) {
   const renderCount = useRenderCount()
 
   const [flash, setFlash] = useState(false)
@@ -29,22 +26,15 @@ export function RenderBox({
 
   return (
     <div
-      className={`
-        rounded-2xl border p-6 transition-all duration-300
-        ${flash ? 'border-green-400 bg-green-400/10' : 'border-zinc-800'}
-      `}
+      className={`rounded-2xl border p-6 transition-all duration-300 ${flash ? 'border-green-400 bg-green-400/10' : 'border-zinc-800'} `}
     >
       <div className="flex items-center justify-between">
         <h3 className="font-medium">{title}</h3>
 
-        <span className="text-sm text-zinc-500">
-          renders: {renderCount}
-        </span>
+        <span className="text-sm text-zinc-500">renders: {renderCount}</span>
       </div>
 
-      <div className="mt-6 text-5xl font-semibold tracking-tight">
-        {value}
-      </div>
+      <div className="mt-6 text-5xl font-semibold tracking-tight">{value}</div>
     </div>
   )
 }

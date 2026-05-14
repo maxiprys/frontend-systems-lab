@@ -6,8 +6,7 @@ export function useWhyDidYouRender(
   name: string,
   props: Record<string, unknown>,
 ) {
-  const previousProps =
-    useRef<Record<string, unknown>>(props)
+  const previousProps = useRef<Record<string, unknown>>(props)
 
   useEffect(() => {
     const allKeys = Object.keys({
@@ -24,9 +23,7 @@ export function useWhyDidYouRender(
         }
       >
     >((acc, key) => {
-      if (
-        previousProps.current[key] !== props[key]
-      ) {
+      if (previousProps.current[key] !== props[key]) {
         acc[key] = {
           previous: previousProps.current[key],
           current: props[key],
@@ -37,10 +34,7 @@ export function useWhyDidYouRender(
     }, {})
 
     if (Object.keys(changes).length) {
-      console.log(
-        `[why-did-you-render] ${name}`,
-        changes,
-      )
+      console.log(`[why-did-you-render] ${name}`, changes)
     }
 
     previousProps.current = props

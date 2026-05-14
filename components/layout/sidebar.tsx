@@ -33,14 +33,11 @@ export function Sidebar() {
           return (
             <button
               key={item.label}
-              className={`
-                flex items-center gap-3 rounded-xl px-4 py-3 text-sm transition-colors
-                ${
-                  item.active
-                    ? 'bg-zinc-900 text-white'
-                    : 'text-zinc-400 hover:bg-zinc-900 hover:text-white'
-                }
-              `}
+              className={`flex items-center gap-3 rounded-xl px-4 py-3 text-sm transition-colors ${
+                item.active
+                  ? 'bg-zinc-900 text-white'
+                  : 'text-zinc-400 hover:bg-zinc-900 hover:text-white'
+              } `}
             >
               <Icon size={18} />
               {item.label}

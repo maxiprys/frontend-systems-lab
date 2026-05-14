@@ -8,10 +8,7 @@ type ChildProps = {
   onAction: () => void
 }
 
-export function Child({
-  count,
-  onAction,
-}: ChildProps) {
+export function Child({ count, onAction }: ChildProps) {
   const renders = useRenderCount()
 
   useWhyDidYouRender('Child', {
@@ -22,18 +19,12 @@ export function Child({
   return (
     <div className="rounded-2xl border border-zinc-800 p-6">
       <div className="flex items-center justify-between">
-        <h3 className="font-medium">
-          Child Component
-        </h3>
+        <h3 className="font-medium">Child Component</h3>
 
-        <span className="text-sm text-zinc-500">
-          renders: {renders}
-        </span>
+        <span className="text-sm text-zinc-500">renders: {renders}</span>
       </div>
 
-      <p className="mt-6 text-4xl font-semibold">
-        {count}
-      </p>
+      <p className="mt-6 text-4xl font-semibold">{count}</p>
 
       <button
         onClick={onAction}
