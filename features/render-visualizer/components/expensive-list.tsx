@@ -16,8 +16,8 @@ export function ExpensiveList({ value }: ExpensiveListProps) {
       </p>
 
       <div className="max-h-48 overflow-auto text-sm text-zinc-400">
-        {items.slice(0, 100).map((item) => (
-          <div key={item}>{item}</div>
+        {items.slice(0, 100).map((item, index) => (
+          <div key={`${item}-${index}`}>{item}</div>
         ))}
       </div>
     </div>

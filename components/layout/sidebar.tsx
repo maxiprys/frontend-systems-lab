@@ -1,19 +1,26 @@
+'use client'
+
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+
 import { Blocks, Zap } from 'lucide-react'
 
 const items = [
   {
     label: 'Render Visualizer',
+    href: '/render-visualizer',
     icon: Zap,
-    active: true,
   },
   {
     label: 'Virtualization',
+    href: '/virtualization',
     icon: Blocks,
-    active: false,
   },
 ]
 
 export function Sidebar() {
+  const pathname = usePathname()
+
   return (
     <aside className="flex w-72 flex-col border-r border-zinc-800">
       <div className="border-b border-zinc-800 px-6 py-5">
@@ -30,18 +37,21 @@ export function Sidebar() {
         {items.map((item) => {
           const Icon = item.icon
 
+          const active = pathname === item.href
+
           return (
-            <button
-              key={item.label}
+            <Link
+              key={item.href}
+              href={item.href}
               className={`flex items-center gap-3 rounded-xl px-4 py-3 text-sm transition-colors ${
-                item.active
+                active
                   ? 'bg-zinc-900 text-white'
                   : 'text-zinc-400 hover:bg-zinc-900 hover:text-white'
               } `}
             >
               <Icon size={18} />
               {item.label}
-            </button>
+            </Link>
           )
         })}
       </nav>
