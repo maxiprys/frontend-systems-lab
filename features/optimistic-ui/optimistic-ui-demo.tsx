@@ -7,13 +7,15 @@ import { useState } from 'react'
 import { createTask, getTasks, type Task } from './api/fake-api'
 
 import { TaskCard } from './components/task-card'
+import { Button } from '@/components/ui/button'
+import { TaskSkeleton } from './components/task-skeleton'
 
 export function OptimisticUiDemo() {
   const [title, setTitle] = useState('')
 
   const queryClient = useQueryClient()
 
-  const { data = [] } = useQuery({
+  const { data = [], isLoading } = useQuery({
     queryKey: ['tasks'],
     queryFn: getTasks,
   })
@@ -73,13 +75,27 @@ export function OptimisticUiDemo() {
         >
           Add Task
         </button>
+
+        <Button onClick={() => mutation.mutate(title)} disabled={!title}>
+          Add Task
+        </Button>
       </div>
 
-      <div className="space-y-3">
-        {data.map((task) => (
-          <TaskCard key={task.id} task={task} />
-        ))}
-      </div>
+      {isLoading && (
+        <div className="space-y-3">
+          {Array.from({ length: 3 }).map((_, index) => (
+            <TaskSkeleton key={index} />
+          ))}
+        </div>
+      )}
+
+      {!isLoading && (
+        <div className="space-y-3">
+          {data.map((task) => (
+            <TaskCard key={task.id} task={task} />
+          ))}
+        </div>
+      )}
 
       {mutation.isError && (
         <div className="rounded-xl border border-red-500 bg-red-500/10 p-4 text-sm text-red-400">
