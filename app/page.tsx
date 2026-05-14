@@ -1,6 +1,7 @@
 import { Sidebar } from '@/components/layout/sidebar'
 import { Topbar } from '@/components/layout/topbar'
 import { RenderVisualizer } from '@/features/render-visualizer/render-visualizer'
+import { VirtualizationDemo } from '@/features/virtualization/virtualization-demo'
 
 export default function HomePage() {
   return (
@@ -23,7 +24,7 @@ export default function HomePage() {
             </div>
 
             <div className="rounded-2xl border border-zinc-800 bg-zinc-950/50 p-10">
-              <RenderVisualizer />
+              <VirtualizationDemo />
             </div>
           </div>
         </div>
