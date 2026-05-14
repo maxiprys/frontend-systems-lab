@@ -1,5 +1,6 @@
 import { Sidebar } from '@/components/layout/sidebar'
 import { Topbar } from '@/components/layout/topbar'
+import { PerformanceBar } from '@/components/performance/performance-bar'
 
 export default function PlaygroundLayout({
   children,
@@ -15,6 +16,8 @@ export default function PlaygroundLayout({
 
         <div className="flex-1 overflow-auto p-8">
           <div className="mx-auto flex max-w-6xl flex-col gap-8">
+            <PerformanceBar />
+
             {children}
           </div>
         </div>
