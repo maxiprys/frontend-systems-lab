@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
-import { Blocks, ChartNoAxesCombined, Zap } from 'lucide-react'
+import { Activity, Blocks, ChartNoAxesCombined, Zap } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 const items = [
@@ -21,6 +21,11 @@ const items = [
     label: 'Optimistic UI',
     href: '/optimistic-ui',
     icon: ChartNoAxesCombined,
+  },
+  {
+    label: 'Suspense',
+    href: '/suspense-demo',
+    icon: Activity,
   },
 ]
 
