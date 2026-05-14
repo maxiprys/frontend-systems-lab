@@ -1,6 +1,12 @@
 'use client'
 
-import { createContext, useContext, useMemo, useState } from 'react'
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useMemo,
+  useState,
+} from 'react'
 
 type RenderEvent = {
   id: number
@@ -23,23 +29,24 @@ export function RenderStoreProvider({
 }>) {
   const [events, setEvents] = useState<RenderEvent[]>([])
 
+  const addEvent = useCallback((component: string) => {
+    setEvents((prev) => [
+      {
+        id: Date.now() + Math.random(),
+        component,
+        timestamp: Date.now(),
+      },
+
+      ...prev.slice(0, 19),
+    ])
+  }, [])
+
   const value = useMemo(() => {
     return {
       events,
-
-      addEvent(component: string) {
-        setEvents((prev) => [
-          {
-            id: Date.now() + Math.random(),
-            component,
-            timestamp: Date.now(),
-          },
-
-          ...prev.slice(0, 19),
-        ])
-      },
+      addEvent,
     }
-  }, [events])
+  }, [events, addEvent])
 
   return (
     <RenderStoreContext.Provider value={value}>

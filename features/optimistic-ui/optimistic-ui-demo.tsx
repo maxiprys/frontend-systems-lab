@@ -68,14 +68,6 @@ export function OptimisticUiDemo() {
           className="flex-1 rounded-xl border border-zinc-800 bg-transparent px-4 py-3 outline-none"
         />
 
-        <button
-          onClick={() => mutation.mutate(title)}
-          disabled={!title}
-          className="rounded-xl bg-white px-5 py-3 font-medium text-black disabled:opacity-50"
-        >
-          Add Task
-        </button>
-
         <Button onClick={() => mutation.mutate(title)} disabled={!title}>
           Add Task
         </Button>
