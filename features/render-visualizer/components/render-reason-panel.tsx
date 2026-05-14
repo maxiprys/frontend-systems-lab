@@ -1,3 +1,5 @@
+import { Card } from '@/components/ui/card'
+
 type RenderReasonPanelProps = {
   callbackEnabled: boolean
   memoEnabled: boolean
@@ -8,7 +10,7 @@ export function RenderReasonPanel({
   memoEnabled,
 }: RenderReasonPanelProps) {
   return (
-    <div className="rounded-2xl border border-zinc-800 p-6">
+    <Card>
       <h3 className="mb-4 font-medium">Render Analysis</h3>
 
       <div className="space-y-3 text-sm">
@@ -32,6 +34,6 @@ export function RenderReasonPanel({
           </p>
         </div>
       </div>
-    </div>
+    </Card>
   )
 }

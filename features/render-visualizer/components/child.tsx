@@ -2,6 +2,7 @@
 
 import { useRenderCount } from '../hooks/use-render-count'
 import { useWhyDidYouRender } from '../hooks/use-why-did-you-render'
+import { Card } from '@/components/ui/card'
 
 type ChildProps = {
   count: number
@@ -17,7 +18,7 @@ export function Child({ count, onAction }: ChildProps) {
   })
 
   return (
-    <div className="rounded-2xl border border-zinc-800 p-6">
+    <Card>
       <div className="flex items-center justify-between">
         <h3 className="font-medium">Child Component</h3>
 
@@ -32,6 +33,6 @@ export function Child({ count, onAction }: ChildProps) {
       >
         Trigger callback
       </button>
-    </div>
+    </Card>
   )
 }

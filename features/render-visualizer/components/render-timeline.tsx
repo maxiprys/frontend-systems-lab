@@ -1,12 +1,13 @@
 'use client'
 
 import { useRenderStore } from '../store/render-store'
+import { Card } from '@/components/ui/card'
 
 export function RenderTimeline() {
   const { events } = useRenderStore()
 
   return (
-    <div className="rounded-2xl border border-zinc-800 p-6">
+    <Card>
       <div className="mb-4">
         <h3 className="font-medium">Render Timeline</h3>
 
@@ -31,6 +32,6 @@ export function RenderTimeline() {
           </div>
         ))}
       </div>
-    </div>
+    </Card>
   )
 }

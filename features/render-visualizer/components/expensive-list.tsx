@@ -1,5 +1,7 @@
 'use client'
 
+import { Card } from '@/components/ui/card'
+
 type ExpensiveListProps = {
   value: number
 }
@@ -8,7 +10,7 @@ export function ExpensiveList({ value }: ExpensiveListProps) {
   const items = Array.from({ length: 5000 }, (_, i) => i * value)
 
   return (
-    <div className="rounded-2xl border border-zinc-800 p-6">
+    <Card>
       <h3 className="mb-4 font-medium">Expensive Computation</h3>
 
       <p className="mb-4 text-sm text-zinc-500">
@@ -20,6 +22,6 @@ export function ExpensiveList({ value }: ExpensiveListProps) {
           <div key={`${item}-${index}`}>{item}</div>
         ))}
       </div>
-    </div>
+    </Card>
   )
 }

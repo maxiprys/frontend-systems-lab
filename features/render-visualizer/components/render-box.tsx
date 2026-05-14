@@ -4,6 +4,7 @@ import { useEffect } from 'react'
 
 import { useRenderCount } from '../hooks/use-render-count'
 import { useRenderStore } from '../store/render-store'
+import { Card } from '@/components/ui/card'
 
 type RenderBoxProps = {
   title: string
@@ -20,7 +21,7 @@ export function RenderBox({ title, value }: RenderBoxProps) {
   }, [addEvent, title, value])
 
   return (
-    <div className="rounded-2xl border border-zinc-800 p-6">
+    <Card>
       <div className="flex items-center justify-between">
         <h3 className="font-medium">{title}</h3>
 
@@ -28,6 +29,6 @@ export function RenderBox({ title, value }: RenderBoxProps) {
       </div>
 
       <p className="mt-6 text-4xl font-semibold">{value}</p>
-    </div>
+    </Card>
   )
 }

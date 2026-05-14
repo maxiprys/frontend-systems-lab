@@ -1,6 +1,7 @@
 'use client'
 
 import { useMemo, useState } from 'react'
+import { Card } from '@/components/ui/card'
 
 const ITEM_HEIGHT = 48
 const VISIBLE_ITEMS = 12
@@ -20,7 +21,7 @@ export function VirtualizedList() {
   }, [startIndex])
 
   return (
-    <div className="rounded-2xl border border-zinc-800 p-6">
+    <Card>
       <div className="mb-4">
         <h3 className="font-medium">Virtualized Rendering</h3>
 
@@ -54,6 +55,6 @@ export function VirtualizedList() {
           </div>
         </div>
       </div>
-    </div>
+    </Card>
   )
 }

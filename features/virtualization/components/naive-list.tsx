@@ -1,5 +1,7 @@
 'use client'
 
+import { Card } from '@/components/ui/card'
+
 const items = Array.from({ length: 10000 }, (_, i) => ({
   id: i,
   label: `Item ${i}`,
@@ -7,7 +9,7 @@ const items = Array.from({ length: 10000 }, (_, i) => ({
 
 export function NaiveList() {
   return (
-    <div className="rounded-2xl border border-zinc-800 p-6">
+    <Card>
       <div className="mb-4">
         <h3 className="font-medium">Naive Rendering</h3>
 
@@ -26,6 +28,6 @@ export function NaiveList() {
           </div>
         ))}
       </div>
-    </div>
+    </Card>
   )
 }
