@@ -3,7 +3,13 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
-import { Activity, Blocks, ChartNoAxesCombined, Zap } from 'lucide-react'
+import {
+  Activity,
+  Blocks,
+  ChartNoAxesCombined,
+  Database,
+  Zap,
+} from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 const items = [
@@ -26,6 +32,11 @@ const items = [
     label: 'Suspense',
     href: '/suspense-demo',
     icon: Activity,
+  },
+  {
+    label: 'Query Inspector',
+    href: '/query-inspector',
+    icon: Database,
   },
 ]
 
