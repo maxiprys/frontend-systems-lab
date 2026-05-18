@@ -2,7 +2,20 @@
 
 An advanced frontend engineering playground focused on rendering behavior, performance optimization, server state management, and modern React architecture patterns.
 
-Built with Next.js, React, TypeScript, and TanStack Query.
+Frontend Systems Lab was built as an interactive environment to explore modern frontend engineering concepts beyond traditional CRUD applications.
+
+The goal is to simulate real-world rendering patterns, async server state behavior, performance bottlenecks, and architectural tradeoffs commonly found in large-scale React applications.
+
+## Goals
+
+- Explore advanced React rendering patterns
+- Visualize frontend performance behavior
+- Simulate real-world async state flows
+- Demonstrate scalable frontend architecture decisions
+
+## Live Demo
+
+Pending
 
 ## Features
 
@@ -41,6 +54,23 @@ Built with Next.js, React, TypeScript, and TanStack Query.
 - Shared styling utilities
 - Design system foundations
 
+## Project Structure
+
+```txt
+src/
+  app/
+  components/
+  features/
+  lib/
+```
+
+### Architecture Overview
+
+- `app/` → Next.js routing and layouts
+- `components/` → shared UI primitives
+- `features/` → isolated feature modules
+- `lib/` → shared utilities and providers
+
 ## Architecture Decisions
 
 ### Feature-Based Structure
@@ -56,8 +86,6 @@ Each feature owns its:
 
 This improves scalability and long-term maintainability.
 
----
-
 ### Why React Query Instead of Global State
 
 Server state is managed with TanStack Query instead of a global client store.
@@ -70,8 +98,6 @@ Benefits:
 - invalidation
 - async lifecycle handling
 
----
-
 ### Why Shared UI Primitives
 
 Reusable UI primitives reduce duplication and create visual consistency across the platform.
@@ -82,8 +108,6 @@ Current primitives:
 - Button
 - Skeleton
 
----
-
 ### Why App Router
 
 Next.js App Router enables:
@@ -93,6 +117,18 @@ Next.js App Router enables:
 - streaming
 - Suspense boundaries
 - progressive rendering
+
+### Why No Zustand or Redux
+
+The project intentionally avoids adding a global client store until complexity justifies it.
+
+Most state in the application is either:
+
+- server state
+- local UI state
+- feature-scoped state
+
+This keeps the architecture simpler and avoids unnecessary abstraction.
 
 ## Engineering Concepts Demonstrated
 
@@ -125,10 +161,26 @@ Next.js App Router enables:
 
 ## Local Development
 
+```bash
 npm install
 npm run dev
+```
 
-# Future improvements
+Then open:
+
+```txt
+http://localhost:3000
+```
+
+## Key Learnings
+
+Building this project reinforced several important frontend engineering concepts:
+
+- Referential stability has a direct impact on rendering behavior.
+- Server state should be treated differently from client UI state.
+- Suspense and streaming significantly improve perceived performance.
+- Shared UI primitives reduce long-term maintenance complexity.
+- Performance tooling greatly improves debugging and developer experience.
 
 ## Future Improvements
 
